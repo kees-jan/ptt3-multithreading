@@ -4,7 +4,7 @@
 /.gtest
 *~
 .*.d
+/compile_commands.json
 
 # Add your executables here, so git will ignore them
-/application/src/calculator
-/library/test/testCalculator
+/library/test/testMessageQueue
