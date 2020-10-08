@@ -8,6 +8,7 @@ class MessageQueue
 {
 public:
   std::optional<std::string> try_read();
+  std::string                read();
   void                       write(std::string newMessage);
 
 private:

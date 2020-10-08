@@ -19,6 +19,20 @@ std::optional<std::string> MessageQueue::try_read()
   }
 }
 
+std::string MessageQueue::read()
+{
+  std::optional<std::string> result;
+
+  do
+  {
+    result = try_read();
+  } while(!result);
+
+  assert(result);
+
+  return std::move(*result);
+}
+
 void MessageQueue::write(std::string newMessage)
 {
   std::scoped_lock l(m);
