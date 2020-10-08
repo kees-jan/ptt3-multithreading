@@ -12,6 +12,9 @@ public:
   void                       write(std::string newMessage);
 
 private:
-  std::mutex             m;
-  std::list<std::string> messages;
+  std::string pop_and_get();
+
+  std::mutex              m;
+  std::condition_variable c;
+  std::list<std::string>  messages;
 };
