@@ -9,40 +9,12 @@
 TEST(dummy, apparently_gtest_needs_at_least_one_test) {}
 
 
-// namespace
-// {
-//   void write_repeatedly(MessageQueue& queue, unsigned count)
-//   {
-//     for(unsigned i = 0; i < count; ++i)
-//     {
-//       queue.write(random_string());
-//     }
-//   }
-
-//   void read_repeatedly(MessageQueue& queue, unsigned count)
-//   {
-//     for(unsigned i = 0; i < count; ++i)
-//       static_cast<void>(queue.try_read());
-//   }
-// } // namespace
-
 // TEST(exercise1, queue_is_initially_empty)
 // {
 //   MessageQueue               queue;
 //   std::optional<std::string> message = queue.try_read();
 
 //   EXPECT_EQ(message, std::nullopt);
-// }
-
-// TEST(exercise1, queue_can_be_written_to_and_read_from)
-// {
-//   const std::string message = random_string();
-
-//   MessageQueue queue;
-//   queue.write(message);
-//   auto result = queue.try_read();
-
-//   EXPECT_EQ(result, message);
 // }
 
 // TEST(exercise1, each_message_is_read_only_once)
@@ -69,10 +41,27 @@ TEST(dummy, apparently_gtest_needs_at_least_one_test) {}
 //   }
 // }
 
+// namespace
+// {
+//   void write_repeatedly(MessageQueue& queue, unsigned count)
+//   {
+//     for(unsigned i = 0; i < count; ++i)
+//     {
+//       queue.write(random_string());
+//     }
+//   }
+
+//   void read_repeatedly(MessageQueue& queue, unsigned count)
+//   {
+//     for(unsigned i = 0; i < count; ++i)
+//       static_cast<void>(queue.try_read());
+//   }
+// } // namespace
+
 // TEST(exercise1, stress_test)
 // {
 //   const unsigned number_of_threads = 100;
-//   const unsigned number_of_actions = 100;
+//   const unsigned number_of_actions = 10000;
 
 //   MessageQueue             queue;
 //   std::vector<std::thread> threads;

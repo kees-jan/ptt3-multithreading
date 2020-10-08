@@ -1,10 +1,23 @@
-#include <messagequeue.h>
-
 #include <thread>
+
+#include <messagequeue.h>
 
 #include <gtest/gtest.h>
 
 #include "test-helpers.h"
+
+// TEST(exercise2, a_sequence_of_messages_can_be_queued)
+// {
+//   auto messages = {random_string(), random_string(), random_string()};
+
+//   MessageQueue queue;
+
+//   for(auto& message: messages)
+//     queue.write(message);
+
+//   for(auto& message: messages)
+//     EXPECT_EQ(queue.try_read(), message);
+// }
 
 // namespace
 // {
@@ -30,19 +43,6 @@
 //   }
 // } // namespace
 
-// TEST(exercise2, a_sequence_of_messages_can_be_queued)
-// {
-//   auto messages = {random_string(), random_string(), random_string()};
-
-//   MessageQueue queue;
-
-//   for(auto& message: messages)
-//     queue.write(message);
-
-//   for(auto& message: messages)
-//     EXPECT_EQ(queue.try_read(), message);
-// }
-
 // TEST(exercise2, stress_test)
 // {
 //   const unsigned number_of_messages = 1000;
@@ -59,4 +59,3 @@
 //     thread.join();
 //   }
 // }
-
