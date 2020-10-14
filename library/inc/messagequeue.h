@@ -11,6 +11,6 @@ public:
   void                       write(std::string newMessage);
 
 private:
-  std::mutex                 m;
-  std::optional<std::string> message;
+  std::mutex             m;
+  std::list<std::string> messages;
 };
