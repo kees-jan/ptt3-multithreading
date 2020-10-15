@@ -7,7 +7,16 @@ This archive contains the exercises for the multithreading workshop
 These instructions are for the Ubuntu image provided by Fontys. If you're using anything else, things may be different for you.
 * Clone this archive
 * You should now be able to `make` the archive without errors
-* You can then run `library/test/testMessageQueue`. That should not run any tests (yet), but otherwise be succesfull.
+* You can then run `library/test/testMessageQueue`. That should not run any tests (yet), but otherwise be succesful.
+
+## Tip: Use more than one core
+Writing unittests to find threading issues is hard. So even if you have errors, the tests are not guaranteed to fail.
+
+I've noticed that tests are more likely to fail if your machine (or VM) has more than 1 core. Unfortunately, the Fontys VM doesn't have that by default. I recommend you change it.
+
+## If you happen to use Ubuntu 18.04 or 20.04 (but not the Fontys image)
+
+* Install `cmake` and `googletest` before building the archive.
 
 ## Assignment
 
