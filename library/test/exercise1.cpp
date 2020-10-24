@@ -70,6 +70,7 @@ TEST(dummy, apparently_gtest_needs_at_least_one_test) {}
 //   {
 //     threads.emplace_back(write_repeatedly, std::ref(queue), number_of_actions);
 //     threads.emplace_back(read_repeatedly, std::ref(queue), number_of_actions);
+//     threads.emplace_back(read_repeatedly, std::ref(queue), number_of_actions);
 //   }
 
 //   for(auto& thread: threads)
