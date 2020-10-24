@@ -1,0 +1,145 @@
+@startuml the-problem
+
+class Message {
+    string theMessage
+}
+class TheAppManager {
+    --
+    handleMessage()
+}
+class Thread
+
+Communication -up-> Message
+Communication *-- Thread
+TheAppManager *-- Thread
+
+Communication - TheAppManager : ?
+@enduml
+
+@startuml solution
+class TheAppManager {
+    --
+    handleMessage()
+}
+class Thread
+
+class MessageQueue {
+    --
+    +write(string message)
+    +read() : string
+}
+
+Communication *-- Thread
+TheAppManager *-- Thread
+
+Communication -> MessageQueue : > writes
+MessageQueue <- TheAppManager : < reads
+@enduml
+
+@startuml bidirectional
+
+object Communication
+object TheAppManager
+object incomingMessageQueue
+object outgoingMessageQueue
+
+Communication -> incomingMessageQueue : > Writes
+Communication --> outgoingMessageQueue : > Reads
+incomingMessageQueue <- TheAppManager : < Reads
+TheAppManager --> outgoingMessageQueue : > Writes
+
+@enduml
+
+@startuml normal-operation
+hide footbox
+
+actor writer
+actor reader
+participant mutex
+participant condition_variable
+
+reader -> mutex : lock
+activate mutex
+note over reader: check condition
+reader -> condition_variable : wait
+activate condition_variable
+condition_variable -> mutex : unlock
+deactivate mutex
+
+writer -> mutex : lock
+activate mutex
+writer -> condition_variable : notify_one
+writer -> mutex : unlock
+deactivate mutex
+
+condition_variable -> mutex : lock
+activate mutex
+condition_variable --> reader : wait returns
+deactivate condition_variable
+note over reader: check condition\nagain
+
+@enduml
+
+@startuml why-loop
+hide footbox
+
+actor writer
+actor reader
+actor cheat
+participant mutex
+participant condition_variable
+
+reader -> mutex : lock
+activate mutex
+note over reader: check condition
+reader -> condition_variable : wait
+activate condition_variable
+condition_variable -> mutex : unlock
+deactivate mutex
+
+writer -> mutex : lock
+activate mutex
+writer -> condition_variable : notify_one
+writer -> mutex : unlock
+deactivate mutex
+
+cheat -> mutex : lock
+activate mutex
+condition_variable -> mutex : lock
+note over condition_variable : can't lock the mutex (yet)
+note over cheat : Cheat takes whatever is produced
+cheat -> mutex : unlock
+deactivate mutex
+
+condition_variable -> mutex : lock now\nsucceeds
+activate mutex
+condition_variable --> reader : wait returns
+deactivate condition_variable
+note over reader: condition still\nfalse
+
+@enduml
+
+@startuml why-cv-unlocks
+hide footbox
+
+actor writer
+actor reader
+participant mutex
+participant condition_variable
+
+reader -> mutex : lock
+activate mutex
+reader -> mutex : unlock
+deactivate mutex
+
+writer -> mutex : lock
+activate mutex
+writer -> condition_variable : notify_one
+writer -> mutex : unlock
+deactivate mutex
+
+
+reader -> condition_variable : wait
+note over condition_variable: nothing hapens because\nnotify_all() was not seen
+
+@enduml
