@@ -1,0 +1,17 @@
+
+- [ ] How to compile
+  - hit ctrl-shift-b
+- [ ] How to run tests
+  - Google test adapter
+  - Open test explorer (erlemeyer)
+  - ctrl-u ctrl-l to run all tests (or use buttons)
+  - Alternatively, run from command-line ./library/test/testMessageQueue
+- [ ] Uncomment a test
+- [ ] Read the name of the test
+- [ ] Read the body of the test
+- [ ] Refer to cppreference
+- [ ] Fix the test
+- [ ] Uncomment second test
+- [ ] Do not clear the message
+- [ ] See that the test fails
+- [ ] Start the debugger

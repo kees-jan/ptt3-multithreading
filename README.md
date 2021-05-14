@@ -112,6 +112,7 @@ This archive contains some settings files for VS Code. Most stuff should just wo
 * After cloning the repository do a `bear make` instead of a regular `make`
   * This will create the database with compilation commands `compile_commands.json` that VS Code needs.
   * You only need to do this once. Call `make` normally from now on (or trigger a build from within VS Code)
+* Install the "GoogleTest Adapter" plugin in VSCode
 
 Pull requests for the settings files are very welcome ;-)
 

@@ -53,5 +53,7 @@
         "chrono": "cpp",
         "algorithm": "cpp",
         "ctime": "cpp"
+        "system_error": "cpp",
+        "cassert": "cpp"
     }
 }
