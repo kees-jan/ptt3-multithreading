@@ -7,7 +7,7 @@
 EXEC = testMessageQueue
 
 # -I directives for the directories of your include files
-INCLUDE_LOCATIONS = -I. -I../inc
+INCLUDE_LOCATIONS = -I. -I../inc -I /usr/src/googletest/googletest/include
 
 # -L directives for the locations of your libraries
 LIBRARY_LOCATIONS = -L../../gtest -L../../gtest/lib
