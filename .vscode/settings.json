@@ -21,10 +21,8 @@
             }
         ]
     },
-    "gtest-adapter.debugConfig": [
-        "Google tests"
-    ],
-    "gtest-adapter.supportLocation": false,
+    "gtest-adapter.debugConfig": "Google tests",
+    "gtest-adapter.supportLocation": true,
     "files.associations": {
         "*.tcc": "cpp",
         "random": "cpp",
@@ -52,7 +50,7 @@
         "typeinfo": "cpp",
         "chrono": "cpp",
         "algorithm": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
         "system_error": "cpp",
         "cassert": "cpp"
     }
